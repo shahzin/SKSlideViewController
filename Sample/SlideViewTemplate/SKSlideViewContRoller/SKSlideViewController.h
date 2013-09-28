@@ -1,10 +1,26 @@
-//
-//  SKSlideViewController.h
-//  SlideViewTemplate
-//
-//  Created by Shahzin KS on 14/07/13.
-//  Copyright (c) 2013 sksarts. All rights reserved.
-//
+/**
+ The MIT License (MIT)
+ 
+ Copyright (c) 2013 Shahzin KS
+ 
+ Permission is hereby granted, free of charge, to any person obtaining a copy
+ of this software and associated documentation files (the "Software"), to deal
+ in the Software without restriction, including without limitation the rights
+ to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
+ 
+ The above copyright notice and this permission notice shall be included in
+ all copies or substantial portions of the Software.
+ 
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ THE SOFTWARE.
+ **/
 
 #import <UIKit/UIKit.h>
 
@@ -49,19 +65,18 @@ typedef NS_OPTIONS(NSUInteger, SKSlideControllerStyle){
 #pragma mark SKSlideController Protocol
 #pragma mark -
 
+/**
+ Highly recommended that the main and accessory view controllers conforms to this protocol inorder to facilitate communication between the view controllers.
+ */
 @protocol SKSlideViewDelegate <NSObject>
 
 @required
 
+/**
+ This method allows the main and accessory controllers to get the reference of the SKSlideViewController instance
+ 
+ */
 -(void)setSKSlideViewControllerReference:(SKSlideViewController *)aSlideViewController;
-
-@optional
-
--(void)didReceiveDataFromLeftContainer:(UIViewController *)container info:(NSDictionary *)userInfo;
-
--(void)didReceiveDataFromRightContainer:(UIViewController *)container info:(NSDictionary *)userInfo;
-
--(void)didReceiveDataFromMainContainer:(UIViewController *)container info:(NSDictionary *)userInfo;
 
 @end
 
@@ -189,12 +204,19 @@ typedef NS_OPTIONS(NSUInteger, SKSlideControllerStyle){
 #pragma mark - __Controller Reference
 
 /**
+ This method returns the main view controller reference if any
  */
 
 -(UIViewController *)getMainViewController;
 
+/**
+ This method returns the left view controller reference if any
+ */
 -(UIViewController *)getLeftViewController;
 
+/**
+ This method returns the right view controller reference if any
+ */
 -(UIViewController *)getRightViewController;
 
 @end
