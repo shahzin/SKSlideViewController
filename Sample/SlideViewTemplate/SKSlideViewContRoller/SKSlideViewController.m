@@ -108,11 +108,6 @@ SKControllerBounds SKControllerBoundsMake(CGFloat minX,CGFloat maxX){
     
     //To 
     BOOL canAcquireVisibleWidthFromAccessoryView;
-    
-    
-    //Interface orientation
-    UIImageView *snapShotImageViewBeforeRotation;
-    UIImageView *snapShotImageViewAfterRotation;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -160,6 +155,16 @@ SKControllerBounds SKControllerBoundsMake(CGFloat minX,CGFloat maxX){
 -(void)dealloc{
     [self removePanGestureFromMainView];
     [self forceUnloadViewControllers];
+    
+    _storyBoardName=nil;
+    _mainViewControllerStoryBoardID=nil;
+    _mainViewControllerSegueID=nil;
+    
+    _leftViewControllerStoryBoardID=nil;
+    _leftViewControllerSegueID=nil;
+    
+    _rightViewControllerStoryBoardID=nil;
+    _rightViewControllerSegueID=nil;
 }
 
 #pragma mark -
@@ -174,7 +179,7 @@ SKControllerBounds SKControllerBoundsMake(CGFloat minX,CGFloat maxX){
     self.slidesOnPanGesture=YES;
     self.hasIdentifiedPanDirection=NO;
     self.loadsOnDemand=YES;
-    //self.hasShadow=YES;
+    self.hasShadow=NO;
     self.currentSlideDirection=SKSlideDirectionNone;
     self.panEndVelocity=SK_DEFAULT_PAN_END_VELOCITY;
     
@@ -248,15 +253,13 @@ SKControllerBounds SKControllerBoundsMake(CGFloat minX,CGFloat maxX){
             CALayer *layer=[view layer];
             [layer setShadowPath:[UIBezierPath bezierPathWithRect:layer.bounds].CGPath];
             [layer setShadowColor:[UIColor blackColor].CGColor];
-            [layer setShadowOffset:CGSizeMake(0, 1)];
+            [layer setShadowOffset:CGSizeMake(0, 4)];
             [layer setShadowOpacity:0.80];
-            //[layer setShadowRadius:8.0];
         }
     }else{
         UIView *view=[self getMainControllerView];
         CALayer *layer=[view layer];
         [layer setShadowPath:nil];
-        //[layer setShadowRadius:0.0];
         [layer setShadowOpacity:0.0];
         [layer setShadowColor:[UIColor clearColor].CGColor];
         [layer setShadowOffset:CGSizeMake(0.0f,0.0f)];
@@ -597,7 +600,7 @@ SKControllerBounds SKControllerBoundsMake(CGFloat minX,CGFloat maxX){
     if(self.panRecognizer==nil){
         return;
     }
-    [[self getMainControllerView] removeGestureRecognizer:self.panRecognizer];
+    [self.panRecognizer.view removeGestureRecognizer:self.panRecognizer];
     self.panRecognizer=nil;
 }
 
