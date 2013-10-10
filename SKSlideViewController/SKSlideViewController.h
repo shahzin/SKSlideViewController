@@ -65,10 +65,17 @@ typedef NS_OPTIONS(NSUInteger, SKSlideControllerStyle){
 #pragma mark SKSlideController Protocol
 #pragma mark -
 
+/**
+ Highly recommended that the main and accessory view controllers conforms to this protocol inorder to facilitate communication between the view controllers.
+ */
 @protocol SKSlideViewDelegate <NSObject>
 
 @required
 
+/**
+ This method allows the main and accessory controllers to get the reference of the SKSlideViewController instance
+ 
+ */
 -(void)setSKSlideViewControllerReference:(SKSlideViewController *)aSlideViewController;
 
 @end
@@ -169,7 +176,7 @@ typedef NS_OPTIONS(NSUInteger, SKSlideControllerStyle){
 
 
 /**
- This method set or unset the shadow of the main view controller while it is revealed
+
  */
 -(void)setHasShadow:(BOOL)hasShadow;
 
@@ -197,12 +204,19 @@ typedef NS_OPTIONS(NSUInteger, SKSlideControllerStyle){
 #pragma mark - __Controller Reference
 
 /**
+ This method returns the main view controller reference if any
  */
 
 -(UIViewController *)getMainViewController;
 
+/**
+ This method returns the left view controller reference if any
+ */
 -(UIViewController *)getLeftViewController;
 
+/**
+ This method returns the right view controller reference if any
+ */
 -(UIViewController *)getRightViewController;
 
 @end
