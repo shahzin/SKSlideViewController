@@ -19,7 +19,8 @@ Features
 
 How To Use
 ----
-Please check the sample project provided.
+
+- [Using Storyboard IDs](/README/HTStoryBoardID.md)
 
 
 License
