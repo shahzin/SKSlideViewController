@@ -33,7 +33,6 @@ SKSlideViewController
 
 7. In the InitialViewController's implementation file add the following method.
 
-		```
 		-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
 		    if([segue.identifier isEqualToString:@"SlideVC"]){
 		        SKSlideViewController *slideController=(SKSlideViewController *)[segue destinationViewController];
@@ -41,7 +40,6 @@ SKSlideViewController
 		        [slideController reloadControllers];
 		    }
 		}
-		```
 
 8. Test and run the code. You could see MainViewController which can be slided to left and right to reveal LeftViewController and RightViewController.
 
