@@ -3,11 +3,6 @@ SKSlideViewController
 
 **SKSlideViewController** is an easy to use, slide-to-navigate view controller for ios 6.0 +. It enables you to present a main view controller and an optional, direction-sensitive accessory view controller. It is easy to setup and modify.
 
-![Alt text](/HTStoryBoardIDSCR/promo.png?raw=true)
-
-
-![Alt text](/HTStoryBoardIDSCR/preview.png?raw=true)
-
 
 ###How To (Using Storyboard IDs)
 
