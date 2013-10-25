@@ -43,4 +43,4 @@ SKSlideViewController
 
 8. Test and run the code. You could see MainViewController which can be slided to left and right to reveal LeftViewController and RightViewController.
 
-9. Next see implementing **SKSlideViewDelegate**
+9. Next see implementing **[SKSlideViewDelegate](HTSKSlideViewDelegate.md)**
