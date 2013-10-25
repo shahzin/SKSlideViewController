@@ -34,7 +34,7 @@ In the following tutorial we will add two buttons to MainViewController on click
 
 5. Implement an action for touch up inside event for the "Left" button in MainViewController and add the following code to that method.
 
-	![Alt text](/HTSKSlideViewDelegateSCR/sc5.jpg?raw=true)
+	![Alt text](/HTSKSlideViewDelegateSCR/sc5.png?raw=true)
 
 		- (IBAction)didTappedLeftButton:(id)sender {
 		    if(self.slideController.isActive){
@@ -46,7 +46,7 @@ In the following tutorial we will add two buttons to MainViewController on click
 
 6. Implement an action for touch up inside event for the "Right" button in MainViewController and add the following code to that method.
 
-	![Alt text](/HTSKSlideViewDelegateSCR/sc6.jpg?raw=true)
+	![Alt text](/HTSKSlideViewDelegateSCR/sc6.png?raw=true)
 
 		- (IBAction)didTappedRightButton:(id)sender {
 		    if(self.slideController.isActive){
