@@ -20,8 +20,16 @@ Features
 How To Use
 ----
 
-- [Using Storyboard IDs](/README/HTStoryBoardID.md)
+- [Integrating using Storyboard IDs](/README/HTStoryBoardID.md)
+- Integrating using Segue IDs
+- Integrating through code
+- [Implementing SKSlideViewDelegate](/README/HTSKSlideViewDelegate.md)
 
+
+Youtube Preview
+----
+
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/OfOghg5M0U8/0.jpg)](http://www.youtube.com/watch?v=OfOghg5M0U8)
 
 License
 ----
