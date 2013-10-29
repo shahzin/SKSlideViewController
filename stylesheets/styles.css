@@ -259,6 +259,24 @@ footer {
         clear: both;
       }
 
+      a.title{
+        color:#222;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      a.title:link{
+        color:#222;
+      }
+
+      a.title:hover{
+        color:#666;
+      }
+
+      a.title:active{
+        color:#222;
+      }
+
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;
