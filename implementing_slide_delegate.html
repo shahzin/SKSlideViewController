@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>SKSlideviewcontroller by Shahzin</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <link rel="icon" type="image/png"
+     href="icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>SKSlideviewcontroller</h1>
+        <p>An easy to use slide to navigate view controller for ios 6.0 +</p>
+
+        <p class="view"><a href="https://github.com/shahzin/SKSlideViewController">View the Project on GitHub <small>shahzin/SKSlideViewController</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/shahzin/SKSlideViewController/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/shahzin/SKSlideViewController/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/shahzin/SKSlideViewController">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+
+        <h1 id="skslideviewcontroller">SKSlideViewController</h1>
+
+<p><strong>SKSlideViewController</strong> is an easy to use, slide-to-navigate view controller for ios 6.0 +. It enables you to present a main view controller and an optional, direction-sensitive accessory view controller. It is easy to setup and modify.</p>
+
+<h3 id="implementingskslideviewdelegate">Implementing SKSlideViewDelegate</h3>
+
+<p>Now the connections have been made between the <strong>SKSlideViewController</strong> and the accessory view controllers. The next task is initiating communication between the connected view controllers. To achieve this the View controllers must implement <strong>SKSlideViewDelegate</strong> protocol.</p>
+
+<p>In the following tutorial we will add two buttons to MainViewController on click of which will reveal the LeftViewController and RightViewController.</p>
+
+<ol>
+<li><p>Create new UIViewController subclass for MainViewController, LeftViewController and RightViewController.</p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc1.jpg?raw=true" alt="Alt text" title="" /></p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc2.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Implement <strong>SKSlideViewDelegate</strong> protocol.</p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc3.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Override </p>
+
+<pre><code>-(void)setSKSlideViewControllerReference:(SKSlideViewController *)aSlideViewController{
+    self.slideController=aSlideViewController;
+}
+</code></pre>
+
+<p>to get hold of SKSlideViewController reference.</p></li>
+<li><p>Add two buttons to MainViewController. Set its title as "Left" and "Right".</p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc4.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Implement an action for touch up inside event for the "Left" button in MainViewController and add the following code to that method.</p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc5.png?raw=true" alt="Alt text" title="" /></p>
+
+<pre><code>- (IBAction)didTappedLeftButton:(id)sender {
+    if(self.slideController.isActive){
+        [self.slideController revealLeftContainerViewAnimated:YES];
+    }else{
+        [self.slideController showMainContainerViewAnimated:YES];
+    }
+}
+</code></pre></li>
+<li><p>Implement an action for touch up inside event for the "Right" button in MainViewController and add the following code to that method.</p>
+
+<p><img src="Resources/images/HTSKSlideViewDelegateSCR/sc6.png?raw=true" alt="Alt text" title="" /></p>
+
+<pre><code>- (IBAction)didTappedRightButton:(id)sender {
+    if(self.slideController.isActive){
+        [self.slideController revealRightContainerViewAnimated:YES];
+    }else{
+        [self.slideController showMainContainerViewAnimated:YES];
+    }
+}
+</code></pre></li>
+<li><p>Build and run the code. Now we can tap the "Left" button on the MainViewController to reveal the LeftViewController and "Right" button to reveal the RightViewController.</p></li>
+<li><p>To initiate communication between MainViewController, LeftViewController and the RightViewController, we could make use of the SKSlideViewController reference. 
+eg. To send a message from LeftViewController to MainViewController</p>
+
+<pre><code>SAMainViewController *mainController=[self.slideController getMainViewController];
+[mainController someMethod:someDataFromLeftViewController];
+</code></pre></li>
+</ol>
+<p><strong><a href="index.html">Go to homepage</a></strong></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/shahzin">shahzin</a></p>
+          <ul id="social_list">
+            <li>
+              <a href="https://www.facebook.com/shahzin007"><img src="Resources/images/Icons/icon_fb_120.png" alt="FB" title="Facebook Profile"/></a>
+            </li>
+            <li>
+              <a href="https://github.com/shahzin"><img src="Resources/images/Icons/icon_gh_120.png" alt="Github" title="Github Profile"/></a>
+            </li>
+            <li>
+              <a href="http://in.linkedin.com/pub/shahzin-ks/51/8a4/609"><img src="Resources/images/Icons/icon_in_120.png" alt="Linked In" title="Linked In Profile"/></a>
+            </li>
+            <li>
+              <a href="https://plus.google.com/103696338626485086591"><img src="Resources/images/Icons/icon_gp_120.png" alt="Google +" title="Google+ Profile"/></a>
+            </li>
+          </ul>
+        <div class="clear"></div>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>

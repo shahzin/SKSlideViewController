@@ -236,6 +236,29 @@ footer {
   }
 }
 
+/*
+  *
+  *Custom Styles
+  *
+*/
+
+      #social_list{
+        list-style-type: none;
+        margin: -16px 0 40px 0;
+        padding: 0;
+      }
+
+      #social_list li{
+        float: left;
+        width: 40px;
+        height: 40px;
+        margin-right: 18px;
+      }
+
+      div.clear{
+        clear: both;
+      }
+
 @media print, screen and (max-width: 480px) {
   body {
     padding:15px;

@@ -30,61 +30,48 @@
         </ul>
       </header>
       <section>
+
         <h1 id="skslideviewcontroller">SKSlideViewController</h1>
 
 <p><strong>SKSlideViewController</strong> is an easy to use, slide-to-navigate view controller for ios 6.0 +. It enables you to present a main view controller and an optional, direction-sensitive accessory view controller. It is easy to setup and modify.</p>
 
-<p><img src="Resources/images/READMESCR/promo.png" alt="Alt text" title="" /></p>
+<h3 id="howtousingstoryboardids">How To (Using Storyboard IDs)</h3>
 
-<p><img src="Resources/images/READMESCR/preview.png" alt="Alt text" title="" /></p>
+<ol>
+<li><p>Create A New Project (Sample)</p>
 
-<h2 id="features">Features</h2>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc1.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Import <strong>SKSlideViewController</strong> to the project</p>
 
-<ul>
-<li>Easy to setup</li>
-<li>Easy to use</li>
-<li>Load accessory view controllers on demand</li>
-<li>Supports storyboard</li>
-<li>Supports multiple orientation</li>
-<li>Works on iPhone,iPod Touch and iPad</li>
-</ul>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc2.png?raw=true" alt="Alt text" title="" /></p>
 
-<h2 id="howtouse">How To Use</h2>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc3.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>In the storyboard add 4 View Controllers.
+<strong>SKSlideViewController</strong>,<strong>MainViewController</strong>, <strong>LeftViewController</strong> and <strong>RightViewController</strong></p></li>
+<li><p>Set the the custom class of one of the controller to <strong>SKSlideViewController</strong>.</p>
 
-<ul>
-<li><a href="using_storyboard.html">Integrating using Storyboard IDs</a></li>
-<li>Integrating using Segue IDs</li>
-<li>Integrating through code</li>
-<li><a href="implementing_slide_delegate.html">Implementing SKSlideViewDelegate</a></li>
-</ul>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc4.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Add Storyboard ID of the MainViewController, LeftViewController and RightViewController to <strong>MainVC</strong>, <strong>LeftVC</strong> and <strong>RightVC</strong> respectively.</p>
 
-<h2 id="youtubepreview">Youtube Preview</h2>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc5.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>Create a modal segue from InitialViewController(SAViewController) to SKSlideViewController and name it as <strong>SlideVC</strong>.</p>
 
-<p><a href="http://www.youtube.com/watch?v=OfOghg5M0U8"><img src="http://img.youtube.com/vi/OfOghg5M0U8/0.jpg" alt="IMAGE ALT TEXT HERE" title="" /></a></p>
+<p><img src="Resources/images/HTStoryBoardIDSCR/sc6.jpg?raw=true" alt="Alt text" title="" /></p></li>
+<li><p>In the InitialViewController's implementation file add the following method.</p>
 
-<h2 id="license">License</h2>
+<pre><code>-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if([segue.identifier isEqualToString:@"SlideVC"]){
+        SKSlideViewController *slideController=(SKSlideViewController *)[segue destinationViewController];
+        [slideController setStoryBoardIDForMainController:@"MainVC" leftController:@"LeftVC" rightController:@"RightVC"];
+        [slideController reloadControllers];
+    }
+}
+</code></pre></li>
+<li><p>Test and run the code. You could see MainViewController which can be slided to left and right to reveal LeftViewController and RightViewController.</p></li>
+<li><p>Next see implementing <strong><a href="implementing_slide_delegate.html">SKSlideViewDelegate</a></strong></p></li>
+</ol>
+<p><strong><a href="index.html">Go to homepage</a></strong></p>
 
-<p>The MIT License (MIT)</p>
-
-<p>Copyright (c) 2013 Shahzin KS</p>
-
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
- of this software and associated documentation files (the "Software"), to deal
- in the Software without restriction, including without limitation the rights
- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- copies of the Software, and to permit persons to whom the Software is
- furnished to do so, subject to the following conditions:</p>
-
-<p>The above copyright notice and this permission notice shall be included in
- all copies or substantial portions of the Software.</p>
-
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- THE SOFTWARE.</p>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/shahzin">shahzin</a></p>
